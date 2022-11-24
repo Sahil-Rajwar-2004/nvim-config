@@ -1,0 +1,12 @@
+LINUX COMMAND:
+
+where to store init.vim file in the directory follow the command given below
+
+cd ~
+mkdir .config (if doesn't exist)
+mkdir nvim
+nvim init.vim/vim init.vim (compolsory)
+go to https://github.com/Sahil-Rajwar-2004/nvim-config
+paste all the content written on init.vim to yours init.vim
+save the file
+cd ~
