@@ -7,6 +7,15 @@ mkdir .config (if doesn't exist)
 mkdir nvim
 nvim init.vim/vim init.vim (compolsory)
 go to https://github.com/Sahil-Rajwar-2004/nvim-config
+
+
+goto terminal and install curl
+sudo apt install curl
+after installing it use this command for plugin installations
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 paste all the content written on init.vim to yours init.vim
 save the file
 cd ~
