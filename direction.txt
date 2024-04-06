@@ -6,8 +6,8 @@ cd ~
 mkdir .config (if doesn't exist)
 mkdir nvim
 nvim init.vim/vim init.vim (compolsory)
-go to https://github.com/Sahil-Rajwar-2004/nvim-config
-
+go to { https://github.com/Sahil-Rajwar-2004/nvim-config }
+copy all the content present in init.vim
 
 goto terminal and install curl
 sudo apt install curl
