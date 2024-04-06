@@ -1,41 +1,47 @@
 :set number
-:set relativenumber
-:set autoindent
+:syntax enable
 :set tabstop=4
 :set shiftwidth=4
-:set smarttab
-:set softtabstop=4
-:set mouse=a
+:set expandtab
+:set nowrap
+:set cursorline
+:set encoding=UTF-8
+:set ignorecase
+:set smartcase
+:set incsearch
 
-set cursorline
-set cursorcolumn
-set nowrap
-set formatoptions-=t
 
 call plug#begin()
-
-Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
-Plug 'https://github.com/preservim/nerdtree' " NerdTree
-Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'https://github.com/vim-airline/vim-airline' " Status bar
-Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
-Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
-Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
-Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
-Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
-Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
-Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-
-set encoding=UTF-8
-
+    Plug 'vim-airline/vim-airline'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'itchyny/vim-gitbranch'
+    Plug 'preservim/nerdtree'
+    Plug 'morhetz/gruvbox'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 call plug#end()
+
+let g:airline_theme = 'bubblegum'
 
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 
-:set completeopt-=preview " For No Previews
-:colorscheme jellybeans
+colorscheme gruvbox
 
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="-"
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+
